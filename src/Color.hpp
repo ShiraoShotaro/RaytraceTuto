@@ -4,6 +4,8 @@
 #include "Vector.hpp"
 
 namespace wlib {
+
+/// @brief A class of linear color.
 class Color : private Vector {
 private:
 	float alpha_;
