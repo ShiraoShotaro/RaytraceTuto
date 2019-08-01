@@ -2,11 +2,11 @@
 
 レイトレーシングで絵が出せることを第一目標に、勉強しながら組んでいこうという自分だけのプロジェクトです。
 
-(githole/edupt)[https://github.com/githole/edupt]
+[githole/edupt](https://github.com/githole/edupt)のプログラムと、その解説資料などをお借りしながら、ただしソースコードはイチから書いて（一部書き写して）いこうと思います。
 
 結果を表示するためのアウトフェースはOpenGLのライブラリであるSFML2.5を利用しています。ただし、SFMLはただ表示のみに使用し、レイトレに直接関係があるところはすべて自前で用意したいと思います。
 
-(SFML)[https://www.sfml-dev.org/]
+[SFML](https://www.sfml-dev.org/)
 
 ## 目指すところ
 
