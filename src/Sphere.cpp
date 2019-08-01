@@ -22,7 +22,7 @@ bool wlib::Sphere::intersect(const Ray & ray, HitPoint & hitpoint) const
 
 		hitpoint.point() = ray.getEmitPosition() + ray.getDirection() * hitpoint.getDistance();
 		hitpoint.normal() = (hitpoint.point() - this->getTranslate()).normalize();
+		return true;
 	}
-
 	return false;
 }
