@@ -3,21 +3,24 @@
 #pragma once
 
 namespace wlib {
+
 	class Vector {
-	private:
-		float x_, y_, z_;
+	protected:
+		float x_, y_, z_, w_;
 	public:
-		explicit Vector(void) noexcept : x_(0.0f), y_(0.0f), z_(0.0f) {}
-		explicit Vector(const float x, const float y, const float z) noexcept : x_(x), y_(y), z_(z) {}
-		Vector(const Vector & vector) noexcept : x_(vector.x_), y_(vector.y_), z_(vector.z_) {}
-		~Vector(void) noexcept {}
+		explicit Vector(void) noexcept : x_(0.0f), y_(0.0f), z_(0.0f), w_(1.0f) {}
+		explicit Vector(const float x, const float y, const float z, const float w = 1.0f) noexcept : x_(x), y_(y), z_(z), w_(w) {}
+		Vector(const Vector & vector) noexcept : x_(vector.x_), y_(vector.y_), z_(vector.z_), w_(vector.w_) {}
+		virtual ~Vector(void) noexcept {}
 
 		inline const float getX(void) const;
 		inline const float getY(void) const;
 		inline const float getZ(void) const;
+		inline const float getW(void) const;
 		inline const Vector & setX(const float x);
 		inline const Vector & setY(const float y);
 		inline const Vector & setZ(const float z);
+		inline const Vector & setW(const float w);
 
 		inline const Vector operator+(const Vector & other) const;
 		inline const Vector operator-(const Vector & other) const;
@@ -45,6 +48,9 @@ namespace wlib {
 	inline const float Vector::getZ(void) const
 	{ return this->z_; }
 
+	inline const float Vector::getW(void) const
+	{ return this->w_; }
+
 	inline const Vector & Vector::setX(const float x)
 	{ this->x_ = x; return *this; }
 
@@ -53,6 +59,9 @@ namespace wlib {
 
 	inline const Vector & Vector::setZ(const float z)
 	{ this->z_ = z; return *this; }
+
+	inline const Vector & Vector::setW(const float w)
+	{ this->w_ = w; return *this; }
 
 	inline const Vector wlib::Vector::operator+(const Vector & other) const
 	{ return Vector(this->x_ + other.x_, this->y_ + other.y_, this->z_ + other.z_); }
@@ -91,7 +100,5 @@ namespace wlib {
 	{ *this *= (1.0f / this->length()); return *this; }
 
 }
-
-
 
 #endif
